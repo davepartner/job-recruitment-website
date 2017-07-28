@@ -1,11 +1,3 @@
-#Job recruitment web portal
-
-## Security
-
-If you discover security related issues, please use the issue tracker (for now).
-
-
-=======
 # job-recruitment-website
 This is a job recruitment website built with [RawPHP Framework](). The full tutorial on how this was built is on youtube.
 
