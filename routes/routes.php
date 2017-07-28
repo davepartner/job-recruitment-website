@@ -15,7 +15,7 @@ $app->get('/', function($request, $response){
 	
 
 //home page
-$app->get('/', 'HomeController:index')->setName('home');
+$app->get('/', 'PostsController:index')->setName('home');
 //about page
 $app->get('/about', 'HomeController:about' )->setName('about');
 

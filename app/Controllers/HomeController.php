@@ -16,7 +16,7 @@ class HomeController extends Controller{
 	
 
 	public function about($request, $response){
-	
+
 	return $this->view->render($response,'about.twig');
 	}
 }

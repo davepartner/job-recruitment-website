@@ -6,7 +6,7 @@ namespace App\Models;
  
 /**
 * Extend eloquent model class 
-* read more https://laravel.com/docs/5.1/eloquent
+* read more https://laravel.com/docs/5.4/eloquent
 */
 use Illuminate\Database\Eloquent\Model;
 /**

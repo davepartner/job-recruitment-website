@@ -9,11 +9,12 @@
 $app = new \Slim\App([
 	'settings' => [
 		'displayErrorDetails' => true,
+		'determineRouteBeforeAppMiddleware' => true,
 	//Database definition
 	'db' => [
 		'driver' => 'mysql',
 		'host'=> 'localhost',
-		'database' => 'raw-php',
+		'database' => 'rawjobs',
 		'username' => 'root',
 		'password' => 'basket',
 		'charset' => 'utf8',
@@ -23,7 +24,7 @@ $app = new \Slim\App([
 	'cakeDB' => [
 		'className' => 'Cake\Database\Connection',
 		'driver' => 'Cake\Database\Driver\Mysql',
-		'database' => 'raw-php',
+		'database' => 'rawjobs',
 		'username' => 'root',
 		'password' => 'basket',
 		'cacheMetadata' => false // If set to `true` you need to install the optional "cakephp/cache" package.

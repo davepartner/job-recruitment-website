@@ -26,9 +26,9 @@
 		<h4><span class="fui-user"></span> Edit Profile</h4>
 
           <div class="login-form" >
-          <form action="{{ path_for('auth.signup') }}" method="post" autocomplete="off"> 
+          <form action="{{ path_for('users.edit', {'id': user.id}) }}" method="post" autocomplete="off"> 
             <div class="form-group {{ errors.first_name ? 'has-error' : '' }}">
-              <input type="text" class="form-control login-field" value="{{ old.first_name }}"  name="first_name" placeholder="Enter your first name" id="login-first-name">
+              <input type="text" class="form-control login-field" value="{{ user.first_name }}"  name="first_name" placehuserer="Enter your first name" id="login-first-name">
               <label class="login-field-icon fui-user" for="login-first-name"></label>
               {% if errors.first_name %}
               	<span class="help-block">{{ errors.first_name | first }}</span>
@@ -36,7 +36,7 @@
             </div>
             
             <div class="form-group {{ errors.last_name ? 'has-error' : '' }}">
-              <input type="text" class="form-control login-field" value="{{ old.last_name }}"  name="last_name" placeholder="Enter your last name" id="login-last-name">
+              <input type="text" class="form-control login-field" value="{{ user.last_name }}"  name="last_name" placehuserer="Enter your last name" id="login-last-name">
               <label class="login-field-icon fui-user" for="login-last-name"></label>
               
                {% if errors.last_name %}
@@ -44,7 +44,7 @@
               {% endif %}	
             </div>
             <div class="form-group {{ errors.email ? 'has-error' : '' }}">
-              <input type="email" class="form-control login-field" value="{{ old.email }}" name="email" placeholder="Enter your email" id="login-email">
+              <input type="email" class="form-control login-field" value="{{ user.email }}" name="email" placehuserer="Enter your email" id="login-email">
               <label class="login-field-icon fui-user" for="login-email"></label>
               
               {% if errors.email %}
@@ -52,7 +52,7 @@
               {% endif %}	
             </div>
             <div class="form-group {{ errors.phone ? 'has-error' : '' }}">
-              <input type="phone" class="form-control login-field" value="{{ old.phone }}" name="phone" placeholder="Enter your email" id="login-email">
+              <input type="phone" class="form-control login-field" value="{{ user.phone }}" name="phone" placehuserer="Enter your email" id="login-email">
               <label class="login-field-icon fui-user" for="phone"></label>
               
               {% if errors.email %}
@@ -61,18 +61,16 @@
             </div>
 
             <div class="form-group">
-              <input type="password" class="form-control login-field" value=""  name="password" placeholder="Password" id="login-pass">
+              <input type="password" class="form-control login-field" value=""  name="password" placehuserer="Password" id="login-pass">
               <label class="login-field-icon fui-lock" for="login-pass"></label>
               {% if errors.password %}
               	<span class="help-block">{{ errors.password | first }}</span>
               {% endif %}	
             </div>
 
-            <button class="btn btn-primary btn-lg btn-block" type="submit">Sign up</button>
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Submit</button>
             
              {{ csrf.field | raw }}
-            <a class="login-link" href="{{ path_for('auth.signin')}}">Login</a>
-            <a class="login-link" href="{{ path_for('auth.password.forgot')}}">Lost your password?</a>
             </form>
           </div>
           </div>

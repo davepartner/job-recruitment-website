@@ -9,6 +9,7 @@ class Controller{
 	public function __construct($container){
 		
 		$this->container = $container;
+		
 	}
 	
 	
@@ -19,4 +20,5 @@ class Controller{
 			return $this->container->{$property};
 		}
 	}
+
 }

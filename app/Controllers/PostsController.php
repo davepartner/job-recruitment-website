@@ -9,7 +9,7 @@ use App\Models\Post;
 class PostsController extends Controller{
 	
 	/**
-	* List all users
+	* List all posts
 	* 
 	* @return
 	*/
@@ -43,6 +43,7 @@ class PostsController extends Controller{
 		return $this->view->render($response,'posts/view.twig', ['post'=>$post]);
 		
 	}
+
 
 
 	
