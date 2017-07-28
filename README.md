@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # RawPHP Framework
 
 [![Build Status](https://travis-ci.org/slimphp/Slim.svg?branch=3.x)](https://travis-ci.org/slimphp/Slim)
@@ -71,3 +72,12 @@ If you discover security related issues, please use the issue tracker (for now).
 ## License
 
 The RawPHP Framework is licensed under the MIT license. See [License File](LICENSE.md) for more information.
+=======
+# job-recruitment-website
+This is a job recruitment website built with raw php. The full tutorial on how this was built is on youtube.
+
+## Tutorial
+
+
+Here is the [full tutorial] (https://www.youtube.com/watch?v=hzRXYrdR4m0&list=PLnBvgoOXZNCM_cxMH8rhLVch_YQbUL5el)
+>>>>>>> 92968c2407d55e496b03cf8ac4afc5749be01b0f
