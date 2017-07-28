@@ -1,8 +1,8 @@
 # job-recruitment-website
-This is a job recruitment website built with [RawPHP Framework](). The full tutorial on how this was built is on youtube.
+This is a job recruitment website built with [RawPHP Framework](https://github.com/rawphp-framework/rawphp). The full tutorial on how this was built is on youtube.
 
 ## Tutorial
-Here is the [full tutorial] (https://www.youtube.com/watch?v=hzRXYrdR4m0&list=PLnBvgoOXZNCM_cxMH8rhLVch_YQbUL5el)
+Here is the [full tutorial](https://www.youtube.com/watch?v=hzRXYrdR4m0&list=PLnBvgoOXZNCM_cxMH8rhLVch_YQbUL5el)
 
 ## Installation 
 * Clone this repo, then run `composer install` from inside the root folder. Make sure you have composer installed in your system before running that.
