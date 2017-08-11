@@ -42,5 +42,25 @@ class User extends Model
 	public function role(){
 		return $this->belongsTo('App\Models\Role');
 	}
+
+	//every user belongs to a country
+	public function country(){
+		return $this->belongsTo('App\Models\Country');
+	}
+
+	
+
+	//every user belongs to a country
+	public function state(){
+		return $this->belongsTo('App\Models\State');
+	}
+
+
+	public function skills(){
+		return $this->belongsToMany('App\Models\Skill')->withTimestamps()->withPivot('description', 'url');
+	}
+
+	
+	
 	
 }

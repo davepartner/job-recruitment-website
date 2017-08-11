@@ -3,6 +3,8 @@
 namespace App\Controllers;
 use App\Controllers\Controller;
 use App\Models\User;
+use App\Models\Country;
+use App\Models\State;
 use Respect\Validation\Validator as v; 
 
 class UsersController extends Controller{
@@ -44,8 +46,11 @@ class UsersController extends Controller{
 	
 	    $user = User::find( $args['id']);
 
+	    $countries = Country::all();
+	    $states = State::all();
+
 		//only admin and the person that created the post can edit or delete this profile.
-			if(($this->auth->user()->id != $args['id']) OR ($this->auth->user()->role_id < 3) ){
+			if(($this->auth->user()->id != $args['id']) AND ($this->auth->user()->role_id > 2) ){
 
 				$this->flash->addMessage('error', 'You are not allowed to perform this action!'); 		
 				return $this->view->render($response,'users/view.twig', ['id'=>$args['id']]);
@@ -87,7 +92,7 @@ class UsersController extends Controller{
                                 ]);
 				
 		}
-		return $this->view->render($response,'users/edit.twig', ['user'=>$user]);
+		return $this->view->render($response,'users/edit.twig', ['user'=>$user, 'states'=>$states, 'countries'=>$countries]);
 		
 	}
 
@@ -98,6 +103,14 @@ class UsersController extends Controller{
 	*/
 	public function delete($request, $response,  $args){
 		$user = User::find( $args['id']);
+
+		//only admin and the person that created the post can edit or delete this profile.
+			if(($this->auth->user()->id != $args['id']) AND ($this->auth->user()->role_id > 2) ){
+
+				$this->flash->addMessage('error', 'You are not allowed to perform this action!'); 		
+				return $this->view->render($response,'users/view.twig', ['id'=>$args['id']]);
+
+			}
 		if($user->delete()){
 			$this->flash->addMessage('success', 'User Account Deleted Successfully');
 			return $response->withRedirect($this->router->pathFor('home'));

@@ -1,0 +1,57 @@
+{% extends 'templates/app.twig' %}
+
+	{% block content %}
+<div class="row">
+	<div class="col-md-10">
+		<div id="postlist">
+			<div class="panel">
+                <div class="panel-heading">
+                    <div class="text-center">
+                        <div class="row">
+                            <div class="col-sm-9">
+                                <h3 class="pull-left">Countries</h3>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+            <div class="panel-body">
+                
+                <div class="container">
+
+
+<ol>
+
+{% for country in countries %}
+
+     <li><a href="{{ path_for('countries.view', {'id': country.id }) }}">{{ country.name }}</a>
+        {{ country.code }} </li>
+
+{% endfor %}
+
+</ol>
+
+<hr>
+
+
+</div>
+<hr>
+</div>
+
+
+            </div>
+            
+            <div class="panel-footer">
+            </div>
+        </div>
+        
+       </div>
+       <div class="text-center">
+            <a href="{{ path_for('countries.add') }}" class="btn btn-primary">New Country</a>
+        </div> 
+    </div>
+</div>
+
+</div>
+	{% endblock %}

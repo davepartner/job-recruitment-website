@@ -1,0 +1,73 @@
+{% extends 'templates/app.twig' %}
+
+	{% block content %}
+<div class="row">
+	<div class="col-md-10">
+		<div id="booklist">
+			<div class="panel">
+                <div class="panel-heading">
+                    <div class="text-center">
+                    {% if user %}
+                        <div class="row">
+                            <div class="col-sm-9">
+                                <h3 class="pull-left">Books by {{ user.first_name }}  {{ user.last_name }}</h3>
+                            </div>
+                            
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                
+            <div class="panel-body">
+                
+                <div class="container">
+
+
+{% for book in books %}
+<div class="row col-md-8">
+  <div class="span12">
+    <div class="row">
+      <div class="span8">
+        <h4><strong><a href="{{ path_for('books.view', {'id': book.id }) }}">{{ book.title }}</a></strong>
+        <small> <a class="btn" href="{{ path_for('users.view', {'id': book.user.id }) }}">
+        {{  book.user.first_name }} {{  book.user.last_name }} </a> </small>
+        </h4>
+       
+      </div>
+    </div>
+    <div class="row">
+    
+      <div class="span10">      
+        <p>
+        {{ book.body| slice(0, 150 ) ~ '...' }}
+         </p>
+      </div>
+    </div>
+   
+  </div>
+</div>
+{% endfor %}
+
+<hr>
+
+
+</div>
+<hr>
+</div>
+
+
+            </div>
+            
+            <div class="panel-footer">
+            </div>
+        </div>
+        
+       </div>
+       <div class="text-center">
+            <a href="{{ path_for('books.add') }}" class="btn btn-primary">New Book</a>
+        </div> 
+    </div>
+</div>
+
+</div>
+	{% endblock %}

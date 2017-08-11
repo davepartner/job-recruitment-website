@@ -28,3 +28,16 @@ $container['PostsController'] = function($container){
 $container['RolesController'] = function($container){
 	return new \App\Controllers\RolesController($container);
 };
+
+
+$container['CountriesController'] = function($container){
+	return new \App\Controllers\CountriesController($container);
+};
+ 
+$container['StatesController'] = function($container){
+	return new \App\Controllers\StatesController($container);
+};
+ 
+$container['SkillsController'] = function($container){
+	return new \App\Controllers\SkillsController($container);
+};

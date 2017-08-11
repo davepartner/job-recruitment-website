@@ -16,6 +16,8 @@
                   <span class="dropdown-arrow"></span>
                   <ul class="dropdown-menu">
                     <li><a href="{{ path_for('users.view', { 'id': auth.user.id }) }}"><i class="fa fa-user" aria-hidden="true"></i> My Profile</a></li>
+                    <li><a href="{{ path_for('skills.index', { 'id': auth.user.id }) }}">
+                    <i class="fa fa-user" aria-hidden="true"></i> My Skills</a></li>
                    
                     <li><a href="{{ path_for('posts.index', {'user_id':  auth.user.id }) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> My Posts</a></li> 
                     <li><a href="{{ path_for('auth.password.change') }}"><i class="fa fa-key" aria-hidden="true"></i> Change Password</a></li>
@@ -34,6 +36,9 @@
                                         <li><a href="{{ path_for('users.index') }}">All Users </a></li>
                                         <li><a href="{{ path_for('posts.index') }}">All Posts </a></li>  
                                         <li><a href="{{ path_for('roles.index') }}">All Roles </a></li>  
+                                        <li><a href="{{ path_for('skills.index') }}">All Skills </a></li>  
+                                        <li><a href="{{ path_for('states.index') }}">All States </a></li>  
+                                        <li><a href="{{ path_for('countries.index') }}">All Countries </a></li>  
                                     </ul>
                                 </li> 
                           {% endif %}

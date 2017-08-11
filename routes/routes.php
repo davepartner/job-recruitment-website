@@ -72,4 +72,34 @@ $app->get('/posts/delete/{id}', 'PostsController:delete')->setName('posts.delete
 
 
 
+//Countries routes
+$app->get('/countries/index', 'CountriesController:index')->setName('countries.index'); //Optional user_id parameter
+$app->map(['POST', 'GET'], '/countries/add/', 'CountriesController:add')->setName('countries.add');
+$app->map(['POST', 'GET'], '/countries/edit/{id}', 'CountriesController:edit')->setName('countries.edit');
+$app->get('/countries/view/{id}', 'CountriesController:view')->setName('countries.view');
+$app->get('/countries/delete/{id}', 'CountriesController:delete')->setName('countries.delete');
+
+
+
+
 })->add(new AuthMiddleware($container));
+
+
+
+ 
+//states routes
+$app->get('/states/index', 'StatesController:index')->setName('states.index'); //Optional user_id parameter
+$app->map(['POST', 'GET'], '/states/add/', 'StatesController:add')->setName('states.add');
+$app->map(['POST', 'GET'], '/states/edit/{id}', 'StatesController:edit')->setName('states.edit');
+$app->get('/states/view/{id}', 'StatesController:view')->setName('states.view');
+$app->get('/states/delete/{id}', 'StatesController:delete')->setName('states.delete');
+
+
+ 
+//skills routes
+$app->get('/skills/index[/{id}]', 'SkillsController:index')->setName('skills.index'); //Optional user_id parameter
+$app->map(['POST', 'GET'], '/skills/add/', 'SkillsController:add')->setName('skills.add');
+$app->map(['POST', 'GET'], '/skills/edit/{id}', 'SkillsController:edit')->setName('skills.edit');
+$app->get('/skills/view/{id}', 'SkillsController:view')->setName('skills.view');
+$app->get('/skills/delete/{id}', 'SkillsController:delete')->setName('skills.delete');
+

@@ -1,0 +1,60 @@
+{% extends 'templates/app.twig' %}
+
+	{% block content %}
+<div class="row">
+	<div class="col-md-10">
+		<div id="statelist">
+			<div class="panel">
+                <div class="panel-heading">
+                    <div class="text-center">
+                 
+                        <div class="row">
+                            <div class="col-sm-9">
+                                <h3 class="pull-left">All states</h3>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+            <div class="panel-body">
+                
+                <div class="container">
+
+
+{% for state in states %}
+<div class="row col-md-8">
+  <div class="span12">
+    <div class="row">
+      <div class="span8">
+        <a href="{{ path_for('states.view', {'id': state.id }) }}">{{ state.name }}</a>
+       
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+<hr>
+
+
+</div>
+<hr>
+</div>
+
+
+            </div>
+            
+            <div class="panel-footer">
+            </div>
+        </div>
+        
+       </div>
+       <div class="text-center">
+            <a href="{{ path_for('states.add') }}" class="btn btn-primary">New state</a>
+        </div> 
+    </div>
+</div>
+
+</div>
+	{% endblock %}
