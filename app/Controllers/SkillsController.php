@@ -111,8 +111,7 @@ class SkillsController extends Controller{
         if($request->isPost()){
         
          $validation = $this->validator->validate($request, [
-                'title' => v::notEmpty(),	
-                'body' => v::notEmpty(),	
+                'name' => v::notEmpty()
             ]);
         //redirect if validation fails
 		if($validation->failed()){
@@ -124,8 +123,9 @@ class SkillsController extends Controller{
             //save Data
             $skill =  Skill::where('id', $args['id'])
                             ->update([
-                                'title' => $request->getParam('title'),
-                                'body' => $request->getParam('body')
+                                'name' => $request->getParam('name'),
+                                'url' => $request->getParam('url'),
+                                'description' => $request->getParam('description')
                                 ]);
             
             if($skill){

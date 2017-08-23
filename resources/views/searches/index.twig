@@ -3,14 +3,14 @@
 	{% block content %}
 <div class="row">
 	<div class="col-md-10">
-		<div id="skilllist">
+		<div id="searchlist">
 			<div class="panel">
                 <div class="panel-heading">
                     <div class="text-center">
                     {% if user %}
                         <div class="row">
                             <div class="col-sm-9">
-                                <h3 class="pull-left">{{ user.first_name }}  {{ user.last_name }} Skills</h3>
+                                <h3 class="pull-left">Search results for " {{ searchTerm }} "</h3>
                             </div>
                             
                         </div>
@@ -23,12 +23,14 @@
                 <div class="container">
 
 
-{% for skill in skills %}
+{% for search in searches %}
 <div class="row col-md-8">
   <div class="span12">
     <div class="row">
       <div class="span8">
-        <h4><strong><a href="{{ path_for('skills.view', {'id': skill.id }) }}">{{ skill.name }}</a></strong>
+        <h4><strong><a href="{{ path_for('searches.view', {'id': search.id }) }}">{{ search.title }}</a></strong>
+        <small> <a class="btn" href="{{ path_for('users.view', {'id': search.user.id }) }}">
+        {{  search.user.first_name }} {{  search.user.last_name }} </a> </small>
         </h4>
        
       </div>
@@ -37,7 +39,7 @@
     
       <div class="span10">      
         <p>
-        {{ skill.description| slice(0, 150 ) ~ '...' }}
+        {{ search.body| slice(0, 150 ) ~ '...' }}
          </p>
       </div>
     </div>
@@ -61,11 +63,9 @@
         </div>
         
        </div>
-       {% if(auth.user.role_id  and auth.user.role_id <= 3) %}
        <div class="text-center">
-            <a href="{{ path_for('skills.add') }}" class="btn btn-primary">New skill</a>
+            <a href="{{ path_for('searches.add') }}" class="btn btn-primary">New search</a>
         </div> 
-        {% endif %}
     </div>
 </div>
 

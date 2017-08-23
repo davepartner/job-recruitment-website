@@ -1,0 +1,102 @@
+{% extends 'templates/app.twig' %}
+
+	{% block content %}
+<div class="row">
+	<div class="col-md-10">
+		<div id="searchlist">
+			<div class="panel">
+                <div class="panel-heading">
+                    <div class="text-center">
+                        <div class="row">
+
+                        {% if(searchTerm) %}
+                            <div class="col-sm-9">
+                                    <h3 class="pull-left">Search results for "{{ searchTerm }}"</h3>
+                           
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                
+            <div class="panel-body">
+                
+
+	<div class="row">
+        <div class="span12">
+    		<div class="" id="loginModal">
+              
+              <div class="modal-body">
+                <div class="well">
+                  <ul class="nav nav-tabs">
+                    <li class="active"><a href="#users" data-toggle="tab">Users</a></li>
+                    <li><a href="#skills" data-toggle="tab">Skills</a></li>
+                  </ul>
+                  <div id="myTabContent" class="tab-content">
+                    <div class="tab-pane active in" id="users">
+
+
+<h4> List of users that match the search </h4>
+
+                    {% for user in users %}
+                            <div class="media">
+                           <!-- <div class="media-left media-middle">
+                                <a href="#">
+                                <img class="media-object" src="..." alt="...">
+                                </a>
+                            </div> -->
+                            <div class="media-body">
+                                  <a href=" {{ path_for('users.view', {'id': user.id}) }}"> 
+                                   <h4 class="media-heading">{{user.first_name}}    {{user.last_name}}    
+                                   </h4> </a>
+
+                              {{user.state.name}}  
+                            </div>
+                            </div>
+
+                    {% endfor %}
+
+                    </div>
+                    <div class="tab-pane fade" id="skills">
+                     
+<h4> Select a skill below to see users that have that skill </h4>
+                    
+                    {% for skill in skills %}
+                            <div class="media">
+                           <!-- <div class="media-left media-middle">
+                                <a href="#">
+                                <img class="media-object" src="..." alt="...">
+                                </a>
+                            </div> -->
+                            <div class="media-body">
+                                <a href=" {{ path_for('skills.view', {'id': skill.id}) }}"> <h4 class="media-heading">{{skill.name}}   </h4> </a>
+                              
+                            </div>
+                            </div>
+
+                    {% endfor %}
+
+
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>
+	</div>
+
+
+
+            </div>
+            
+        </div>
+        
+       </div>
+    </div>
+    </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-3">
+        </div>
+        <div class="col-md-1">
+        </div>
+    </div>
+{% endblock %}

@@ -38,6 +38,7 @@
                                         <li><a href="{{ path_for('roles.index') }}">All Roles </a></li>  
                                         <li><a href="{{ path_for('skills.index') }}">All Skills </a></li>  
                                         <li><a href="{{ path_for('states.index') }}">All States </a></li>  
+                                        <li><a href="{{ path_for('searches.index') }}">All Search Terms </a></li>  
                                         <li><a href="{{ path_for('countries.index') }}">All Countries </a></li>  
                                     </ul>
                                 </li> 
@@ -50,15 +51,16 @@
                 {% endif %}
                 <li><a href="{{ path_for('about')}}"><i class="fa fa-address-book-o" aria-hidden="true"></i> About Us</a></li>
                </ul>
-               <form class="navbar-form navbar-right" action="#" role="search">
+               <form action="{{ path_for('searches.add') }}" method="post" class="navbar-form navbar-right" role="search">
                 <div class="form-group">
                   <div class="input-group">
-                    <input class="form-control" id="navbarInput-01" type="search" placeholder="Search">
+                    <input class="form-control" name="searchterm" id="navbarInput-01" type="search" placeholder="Search">
                     <span class="input-group-btn">
                       <button type="submit" class="btn btn-primary"><span class="fui-search"></span> Search</button>
                     </span>
                   </div>
                 </div>
+                {{ csrf.field | raw }}
               </form>
             </div><!-- /.navbar-collapse -->
           </nav>

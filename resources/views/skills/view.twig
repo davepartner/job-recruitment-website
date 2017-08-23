@@ -3,20 +3,18 @@
 	{% block content %}
 <div class="row">
 	<div class="col-md-10">
-		<div id="booklist">
+		<div id="skilllist">
 			<div class="panel">
                 <div class="panel-heading">
                     <div class="text-center">
                         <div class="row">
                             <div class="col-sm-9">
-                                <h3 class="pull-left">{{ book.title }}
-                                    <small class="pull-left "> <a class="btn" href="{{ path_for('users.view', {'id': book.user.id }) }}">
-        {{  book.user.first_name }} {{  book.user.last_name }} </a> </small>
+                                <h3 class="pull-left">{{ skill.name }}
                                 </h3>
                             </div>
                             <div class="col-sm-3">
                                 <h4 class="pull-right">
-                                <small> {{ book.created_at }} </small>
+                                <small> {{ skill.created_at }} </small>
                                 </h4>
                             </div>
                         </div>
@@ -24,8 +22,33 @@
                 </div>
                 
             <div class="panel-body">
-                {{ book.body }} 
+                {{ skill.description }} 
+
+                <br/>
+                {% if (skill.url) %}
+                <a href="{{skill.url}}" > View Offial Website  </a>
+                {% endif %}
+           
+            <h4> List of Users With This Skill </h4>
+
+            {% for user in skill.users %}
+
+            <div class="media">
+            <!-- <div class="media-left media-middle">
+                <a href="#">
+                <img class="media-object" src="..." alt="">
+                </a>
+            </div> -->
+            <div class="media-body">
+              <a href="{{ path_for('users.view', {'id': user.id } ) }}">  <h4 class="media-heading"> {{ user.first_name}} {{ user.last_name}}</h4> </a>
+            
             </div>
+            </div>
+
+            {% endfor %}
+
+             </div>
+
             
             <!-- <div class="panel-footer">
                 <span class="label label-default">Welcome</span> <span class="label label-default">Updates</span> <span class="label label-default">July</span>
@@ -34,12 +57,12 @@
         
        </div>
     </div>
-    <!-- Only the owner of this book and the admin can edit and delete it -->
-     {% if (book.user_id == auth.user.id) or (auth.user.role_id <= 3) %}
+    <!-- Only the owner of this skill and the admin can edit and delete it -->
+     {% if (auth.user.role_id  and auth.user.role_id <= 3) %}
 		<div class="text-center">
-            <p><a href="{{ path_for('books.edit', {'id': book.id } ) }}" class="btn btn-primary">Edit book</a>
+            <p><a href="{{ path_for('skills.edit', {'id': skill.id } ) }}" class="btn btn-primary">Edit skill</a>
                 </p>
-                <p> <a onclick="return confirm('Are you sure you wish to delete this Book?');"  href="{{ path_for('books.delete', {'id': book.id } ) }}" class="btn btn-warning">Delete book</a>
+                <p> <a onclick="return confirm('Are you sure you wish to delete this skill?');"  href="{{ path_for('skills.delete', {'id': skill.id } ) }}" class="btn btn-warning">Delete skill</a>
         
                 </p>
           </div>
